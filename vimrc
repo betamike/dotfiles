@@ -1,11 +1,15 @@
+" load pathogen from bundle dir
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 "load pathogen plugins
 call pathogen#infect()
 
 set nocompatible
 set encoding=utf-8
-set background=dark
-colorscheme dante
 set showcmd
+
+set background=dark
+colorscheme molokai
+let g:molokai_original = 1
 
 "always show status bar
 set laststatus=2
