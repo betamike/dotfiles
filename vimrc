@@ -24,13 +24,17 @@ syntax enable
 filetype plugin on
 filetype plugin indent on
 
+"work
+autocmd BufRead,BufNewFile *sr?/server/*.py set colorcolumn=100
+autocmd BufRead,BufNewFile *src/client/*.py set colorcolumn=120
+
 "enable mouse
 "set mouse=a
 
 "indent and tab
 set nowrap
 set expandtab
-set tabstop=4 shiftwidth=4
+set tabstop=4 shiftwidth=4 softtabstop=4
 set backspace=indent,eol,start
 
 "search
@@ -42,6 +46,10 @@ set smartcase
 "wildmenu config
 set wildmenu
 set wildmode=longest:full,full
+
+"configure code folding bindings
+nnoremap <space> za
+vnoremap <space> zf
 
 "turn paste mode on and off with F3
 set pastetoggle=<F3>
