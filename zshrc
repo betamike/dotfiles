@@ -36,8 +36,9 @@ PROMPT='
 > '
 
 export EDITOR=vim
+export TERM=rxvt-256color
 
-alias ls='ls -G'
+alias ls='ls -G --color'
 alias ll='ls -l'
 alias la='ls -a'
 
