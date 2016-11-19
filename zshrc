@@ -43,9 +43,7 @@ alias la='ls -a'
 
 bindkey '^R' history-incremental-search-backward
 
-# setup paths for Go and Goat
-export GOAT_ACTUALGO=/usr/local/go/bin/go
 export GOPATH=$HOME/Projects/go
 
-# add Go bin and brew's bin to path
-export PATH=$GOPATH/bin:$(brew --prefix)/bin:$PATH
+export PATH=$HOME/bin:$GOPATH/bin:$PATH
+export PATH=/home/mike/.gem/ruby/2.3.0/bin:$PATH
