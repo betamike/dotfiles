@@ -8,28 +8,54 @@ set encoding=utf-8
 set showcmd
 
 set background=dark
-colorscheme molokai
+set termguicolors
+colorscheme molokai "gruvbox zenburn
 let g:molokai_original = 1
 
 "always show status bar
 set laststatus=2
-
-"Go specific settings
-set rtp+=$GOROOT/misc/vim
-au BufRead,BufNewFile *.go set list noexpandtab syntax=go listchars=tab:\|\ ,trail:- 
-set completeopt-=preview
 
 set number
 syntax enable
 filetype plugin on
 filetype plugin indent on
 
-"work
-autocmd BufRead,BufNewFile *sr?/server/*.py set colorcolumn=100
-autocmd BufRead,BufNewFile *src/client/*.py set colorcolumn=120
+"Go specific settings
+set rtp+=$GOROOT/misc/vim
+au BufRead,BufNewFile *.go set list noexpandtab syntax=go listchars=tab:\|\ ,trail:-
+set completeopt-=preview
 
-"enable mouse
-"set mouse=a
+function! InsertTabWrapper()
+  if pumvisible()
+    return "\<c-n>"
+  endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-x>\<c-o>"
+  endif
+endfunction
+inoremap <expr><tab> InsertTabWrapper()
+inoremap <expr><s-tab> pumvisible()?"\<c-p>":"\<c-d>"
+
+let g:deoplete#enable_at_startup = 1
+
+let g:syntastic_go_checkers = ['go', 'goimports', 'govet', 'golint']
+let g:deoplete#sources#go#gocode_binary = '~/bin/gocode'
+let g:deoplete#sources#go#use_cache = 1
+let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go/$GOOS_$GOARCH'
+
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+source ~/.vim/work_customizations.vim
 
 "indent and tab
 set nowrap
@@ -56,6 +82,8 @@ set pastetoggle=<F3>
 
 "configure tagbar
 nmap <F8> :TagbarToggle<CR>
+let g:tagbar_width = 60
+let g:tagbar_sort = 0
 
 let g:tagbar_type_scala = {
     \ 'ctagstype' : 'Scala',

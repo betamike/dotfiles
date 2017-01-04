@@ -9,7 +9,7 @@ ZSH=$HOME/.oh-my-zsh
 # DISABLE_AUTO_UPDATE="true"
 
 # Plugins to load
-plugins=(git go knife osx zsh-syntax-highlighting)
+plugins=(git go osx zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -35,8 +35,7 @@ PROMPT='
 %F{red}%n@%m%F{red} %F{green}%/%F{yellow}${vcs_info_msg_0_}%f
 > '
 
-export EDITOR=vim
-export TERM=rxvt-256color
+export EDITOR=nvim
 
 alias ls='ls -G --color'
 alias ll='ls -l'
