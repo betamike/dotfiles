@@ -47,3 +47,4 @@ export GOPATH=$HOME/Projects/go
 
 export PATH=$HOME/bin:$GOPATH/bin:$PATH
 export PATH=/home/mike/.gem/ruby/2.3.0/bin:$PATH
+export PATH=/opt/android-studio/bin:/home/mike/.cargo/bin:$PATH

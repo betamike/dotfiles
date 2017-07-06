@@ -55,7 +55,9 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-source ~/.vim/work_customizations.vim
+if filereadable(expand("~/.vim/local.vim"))
+    source ~/.vim/local.vim
+endif
 
 "indent and tab
 set nowrap
