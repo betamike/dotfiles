@@ -1,0 +1,14 @@
+# My ZSH configs
+
+All the files prefixed with `omz_` are default configs from oh-my-zsh.
+I'm in the process of migrating off of oh-my-zsh but I'm used to -- and
+like -- some of those default configs. I'm slowly looking into each one
+and deciding if I want to keep it or remove it.
+
+## Completions
+
+Put completions in `~/.zsh/completions`.
+
+## Functions
+
+Put functions in `~/.zsh/functions`.

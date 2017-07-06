@@ -1,17 +1,5 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-#ZSH_THEME="robbyrussell"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Plugins to load
-plugins=(git go osx zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
+# load my zsh configs
+source ~/.zsh/load.sh
 
 # turn off mostly unhelpful autocorrect
 unsetopt correct_all
@@ -48,3 +36,6 @@ export GOPATH=$HOME/Projects/go
 export PATH=$HOME/bin:$GOPATH/bin:$PATH
 export PATH=/home/mike/.gem/ruby/2.3.0/bin:$PATH
 export PATH=/opt/android-studio/bin:/home/mike/.cargo/bin:$PATH
+
+# source zsh-syntax-highlighting last
+source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
