@@ -1,5 +1,6 @@
 # path to my zsh configs
 ZSH=$HOME/.zsh
+ZSH_CACHE_DIR=$ZSH/cache
 
 # load the things
 fpath=($ZSH/functions $ZSH/completions $fpath)

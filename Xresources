@@ -1,56 +1,9 @@
 ! DPI settings
 Xft.dpi: 276
+!Xft.dpi: 220
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
-
-! urxvt config
-URxvt.scrollBar: False
-!URxvt.font: xft:Source Code Pro:size=10
-URxvt.font: xft:Inconsolata :size=10
-
-URxvt.perl-ext-common: default,clipboard
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
-URxvt.keysym.M-C-c: perl:clipboard:paste_escaped
-
-! terminal colours
-URxvt.foreground:#a0a0a0
-URxvt.background:#1b1d1e
-
-!molokai inspired colors
-
-!!black
-URxvt.color0:  #1b1d1e
-URxvt.color8:  #505354
-
-!red
-URxvt.color1:  #f92672
-URxvt.color9:  #ff5995
-
-!green
-URxvt.color2:  #82b414
-URxvt.color10: #b6e354
-
-!yellow
-URxvt.color3:  #fd971f
-URxvt.color11: #feed6c
-
-!blue
-URxvt.color4:  #56c2d6
-URxvt.color12: #8cedff
-
-!magenta
-URxvt.color5:  #8c54fe
-URxvt.color13: #9e6ffe
-
-!cyan
-URxvt.color6:  #465457
-URxvt.color14: #899ca1
-
-!white
-URxvt.color7:  #ccccc6
-URxvt.color15: #f8f8f2
