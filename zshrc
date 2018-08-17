@@ -23,6 +23,8 @@ PROMPT='
 %F{red}%n@%m%F{red} %F{green}%/%F{yellow}${vcs_info_msg_0_}%f
 > '
 
+eval `keychain --eval --agents ssh id_rsa`
+
 export EDITOR=nvim
 
 alias ls='ls -G --color'
