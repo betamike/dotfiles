@@ -1,7 +1,25 @@
-" load pathogen from bundle dir
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-"load pathogen plugins
-call pathogen#infect()
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'w0rp/ale'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+Plug 'morhetz/gruvbox'
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+Plug 'hdima/python-syntax'
+
+Plug 'rust-lang/rust.vim'
+
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
+
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
+
 
 set nocompatible
 set encoding=utf-8
@@ -21,7 +39,7 @@ set background=dark
 "colorscheme molokai "gruvbox zenburn
 " colorscheme material-monokai
 "let g:molokai_original = 1
-colorscheme deep-space
+colorscheme gruvbox
 
 "always show status bar
 set laststatus=2
@@ -62,23 +80,6 @@ nnoremap <C-H> <C-W><C-H>
 
 set splitbelow
 set splitright
-
-function! s:goyo_enter()
-  set wrap
-  Limelight
-endfunction
-
-function! s:goyo_leave()
-  set nowrap
-  Limelight!
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-au BufRead,BufNewFile *.txt :Goyo
-
-let g:goyo_width = 120
 
 " choose the fastest available searcher
 if executable('rg')
@@ -132,10 +133,6 @@ endfunction
 inoremap <expr><tab> InsertTabWrapper()
 inoremap <expr><s-tab> pumvisible()?"\<c-p>":"\<c-d>"
 
-" let g:LanguageClient_serverCommands = {
-"     \ 'python': ['pyls'],
-"     \ }
-
 let g:go_fmt_command = "goimports"
 let g:syntastic_go_checkers = ['go', 'goimports', 'govet', 'golint']
 
@@ -167,10 +164,6 @@ let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go/$GOOS_$GOARCH'
 " deoplete Rust
 let g:deoplete#sources#rust#racer_binary = '/home/cugini/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path = '/home/cugini/Projects/rust/src'
-
-" deoplete Python (jedi)
-let g:deoplete#sources#jedi#python_path = '/usr/drte/v1/python-2.7.7/bin/python2.7' 
-let g:deoplete#sources#jedi#extra_path = ['/home/cugini/src/server','/home/cugini/src/server/pip']
 
 "configure tagbar
 nmap <F8> :TagbarToggle<CR>
