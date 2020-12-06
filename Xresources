@@ -1,5 +1,5 @@
 ! DPI settings
-Xft.dpi: 276
+!Xft.dpi: 276
 !Xft.dpi: 220
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault

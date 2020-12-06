@@ -1,5 +1,6 @@
 # load my zsh configs
 source ~/.zsh/load.sh
+source ~/.nix-profile/etc/profile.d/nix.sh
 
 # turn off mostly unhelpful autocorrect
 unsetopt correct_all
@@ -34,10 +35,18 @@ alias la='ls -a'
 bindkey '^R' history-incremental-search-backward
 
 export GOPATH=$HOME/Projects/go
+export RUST_SRC_PATH=$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 
-export PATH=$HOME/bin:$GOPATH/bin:$PATH
-export PATH=/home/mike/.gem/ruby/2.3.0/bin:$PATH
-export PATH=/opt/android-studio/bin:/home/mike/.cargo/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH # user custom bins
+export PATH=$GOPATH/bin:$PATH # go bin
+export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH  # ruby gem bin
+export PATH=$HOME/.cargo/bin:$PATH # rust cargo bin
+export PATH=$HOME/Android/Sdk/platform-tools:$PATH # android studio bin
+export PATH=$HOME/.poetry/bin:$PATH # android studio bin
 
 # source zsh-syntax-highlighting last
 source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/fzf/key-bindings.zsh
+eval "$(direnv hook zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
