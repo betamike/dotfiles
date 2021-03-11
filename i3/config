@@ -17,6 +17,7 @@ exec --no-startup-id pasystray
 exec --no-startup-id dropbox start
 exec --no-startup-id protonmail-bridge --no-window
 exec --no-startup-id /home/mike/bin/vorta
+exec --no-startup-id  blueman-tray
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -166,8 +167,6 @@ mode "resize" {
 }
 
 #bindsym $mod+r mode "resize"
-
-for_window [class="Keybase"] move position mouse
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
