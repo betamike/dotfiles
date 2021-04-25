@@ -45,7 +45,7 @@ export PATH=$HOME/Android/Sdk/platform-tools:$PATH # android studio bin
 export PATH=$HOME/.poetry/bin:$PATH # android studio bin
 
 # source zsh-syntax-highlighting last
-source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/fzf/key-bindings.zsh
 eval "$(direnv hook zsh)"
 
