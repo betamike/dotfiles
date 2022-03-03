@@ -4,15 +4,19 @@
 git submodule update --init
 
 # symlink zsh files
+rm "$HOME/.zshrc"
 ln -s "$PWD/zshrc" "$HOME/.zshrc"
+rm "$HOME/.zsh"
 ln -s "$PWD/zsh" "$HOME/.zsh"
 
 # setup neovim config directory
 mkdir -p "$HOME/.config/nvim"
+rm "$HOME/.config/nvim/init.vim"
 ln -s "$PWD/init.vim" "$HOME/.config/nvim/init.vim"
 
 nvim_autoload_dir="${XDG_DATA_HOME:-$HOME/.local/share}/nvim/site/autoload"
 mkdir -p "$nvim_autoload_dir"
+rm "$nvim_autoload_dir/plug.vim"
 ln -s "$PWD/vim-plug.vim" "$nvim_autoload_dir/plug.vim"
 
 if [ -n "${commands[nvim]}" ]; then
@@ -24,6 +28,7 @@ kernel=$(uname -s)
 if [[ "$kernel" == "Linux" ]]; then
     echo "detected Linux"
     mkdir -p "$HOME/.config/i3"
+    rm "$HOME/.config/i3/config"
     ln -s "$PWD/i3/config" "$HOME/.config/i3/config"
 fi
 
@@ -31,5 +36,6 @@ fi
 if [[ "$kernel" == "Darwin" ]]; then
     echo "detected macOS"
     mkdir -p "$HOME/.nixpkgs"
+    rm "$HOME/.nixpkgs/darwin-configuration.nix"
     ln -s "$PWD/nix-darwin/darwin-configuration.nix" "$HOME/.nixpkgs/darwin-configuration.nix"
 fi
