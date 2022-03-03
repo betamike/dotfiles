@@ -1,21 +1,18 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 " general dev tools
-Plug 'w0rp/ale'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'w0rp/ale'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'LnL7/vim-nix'
+Plug 'hashivim/vim-terraform'
 
 " go tools
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " rust tools
-Plug 'rust-lang/rust.vim'
-" Plug 'racer-rust/vim-racer'
-
-" reason/bucklescript
-Plug 'reasonml-editor/vim-reason-plus'
+" Plug 'rust-lang/rust.vim'
 
 " git
 Plug 'mhinz/vim-signify'
@@ -32,24 +29,14 @@ Plug 'liuchengxu/space-vim-theme'
 " Plug 'hdima/python-syntax'
 Plug 'vim-python/python-syntax'
 
-" elm tools
-Plug 'andys8/vim-elm-syntax'
-
 " Javascript
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'yuezk/vim-js'
+" Plug 'maxmellon/vim-jsx-pretty'
 
-" lisps
-Plug 'wlangstroth/vim-racket'
-Plug 'junegunn/rainbow_parentheses.vim'
-
-" notes and organization
-Plug 'vimwiki/vimwiki'
-
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 
 call plug#end()
 
