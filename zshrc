@@ -19,9 +19,15 @@ precmd() {
 
 setopt PROMPT_SUBST
 
+if [[ -z "$GITHUB_USER" ]]; then
 PROMPT='
 %F{red}%n@%m%F{red} %F{green}%/%F{yellow}${vcs_info_msg_0_}%f
 > '
+else
+PROMPT='
+%F{red}$@{GITHUB_USER}%F{red} %F{green}%/%F{yellow}${vcs_info_msg_0_}%f
+> '
+fi
 RPROMPT=''
 
 if [[ -f "$HOME/.ssh/id_ed25519" ]]; then
