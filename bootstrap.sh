@@ -1,5 +1,44 @@
 #!/bin/bash
 
+# NOTE: this is really only for Codespaces dotfiles integration right now.
+# Needs work to be more generally useful
+
+local_bin="$HOME/.local/bin"
+mkdir -p "$local_bin"
+
+# codespaces specific setup
+# goes first so it can install things potentially needed later
+if [[ "$CODESPACES" == "true" ]]; then
+    echo "Detected Codespaces"
+
+    # AppImages require fuse
+    apt update
+    apt install libfuse2
+
+    # install neovim AppImage
+    curl -LO "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
+    chmod u+x nvim.appimage
+    mv nvim.appimage "$local_bin"
+    rm "$local_bin/nvim"
+    # make nvim alias
+    ln -s "$local_bin/nvim.appimage" "$local_bin/nvim"
+
+    # set ZSH as the default shell
+    chsh -s /bin/zsh
+
+    # install RipGrep
+    rg_archive_name="ripgrep-13.0.0-x86_64-unknown-linux-musl"
+    rg_sha256sum="ee4e0751ab108b6da4f47c52da187d5177dc371f0f512a7caaec5434e711c091"
+    curl -LO "https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/$rg_archive_name.tar.gz"
+    echo "$rg_sha256sum $rg_archive_name.tar.gz" | sha256sum --check --status
+    if [[ "$?" -ne 0 ]]; then
+        echo "RipGrep archive checksum failed! Bailing."
+        exit 1
+    fi
+    tar xzf "$rg_archive_name.tar.gz"
+    mv "$rg_archive_name/rg" "$local_bin/rg"
+fi
+
 # init submodules for zsh syntax highlight plugin
 git submodule update --init
 
@@ -20,7 +59,9 @@ rm "$nvim_autoload_dir/plug.vim"
 ln -s "$PWD/vim-plug.vim" "$nvim_autoload_dir/plug.vim"
 
 if [ -n "${commands[nvim]}" ]; then
-    eval "$(nvim +PluginInstall +qall)"
+    nvim +PlugInstall +qall
+elif [ -f "$local_bin/nvim" ]; then
+    "$local_bin/nvim" +PlugInstall +qall
 fi
 
 kernel=$(uname -s)
