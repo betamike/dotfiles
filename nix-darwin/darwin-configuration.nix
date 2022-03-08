@@ -9,6 +9,7 @@ in {
     pkgs.findutils
     pkgs.gh
     pkgs.gnugrep
+    pkgs.go
     pkgs.jq
     pkgs.keychain
     pkgs.hack-font
@@ -18,6 +19,7 @@ in {
     pkgs.tmux
     pkgs.tree
     pkgs.vim
+    pkgs.watchman
   ];
 
   homebrew = {
@@ -27,16 +29,18 @@ in {
     brews = [
       "mas"
     ];
-    taps = [ "homebrew/cask" ];
+    taps = [ "homebrew/cask" "homebrew/cask-drivers" ];
     casks = [
      "1password"
       "alfred"
       "amethyst"
+      "cameracontroller"
       "google-chrome"
       "ferdi"
       "firefox"
       "iterm2"
       "logseq"
+      "remarkable"
       "signal"
       "slack"
       "spotify"
