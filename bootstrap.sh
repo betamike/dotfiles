@@ -5,6 +5,8 @@
 
 local_bin="$HOME/.local/bin"
 mkdir -p "$local_bin"
+user_config="$HOME/.config"
+mkdir -p "$user_config"
 
 # codespaces specific setup
 # goes first so it can install things potentially needed later
@@ -49,9 +51,8 @@ rm "$HOME/.zsh"
 ln -s "$PWD/zsh" "$HOME/.zsh"
 
 # setup neovim config directory
-mkdir -p "$HOME/.config/nvim"
-rm "$HOME/.config/nvim/init.vim"
-ln -s "$PWD/init.vim" "$HOME/.config/nvim/init.vim"
+rm -r "$user_config/nvim"
+ln -s "$PWD/nvim" "$HOME/.config/nvim"
 
 nvim_autoload_dir="${XDG_DATA_HOME:-$HOME/.local/share}/nvim/site/autoload"
 mkdir -p "$nvim_autoload_dir"
@@ -59,18 +60,18 @@ rm "$nvim_autoload_dir/plug.vim"
 ln -s "$PWD/vim-plug.vim" "$nvim_autoload_dir/plug.vim"
 
 if [ -n "${commands[nvim]}" ]; then
-    nvim +PlugInstall +qall
+    nvim +PlugInstall +COQDeps +qall
 elif [ -f "$local_bin/nvim" ]; then
-    "$local_bin/nvim" +PlugInstall +qall
+    "$local_bin/nvim" +PlugInstall +COQDeps +qall
 fi
 
 kernel=$(uname -s)
 # check if we should do linux specific setup
 if [[ "$kernel" == "Linux" ]]; then
     echo "detected Linux"
-    mkdir -p "$HOME/.config/i3"
-    rm "$HOME/.config/i3/config"
-    ln -s "$PWD/i3/config" "$HOME/.config/i3/config"
+    mkdir -p "$user_config/i3"
+    rm "$user_config/i3/config"
+    ln -s "$PWD/i3/config" "$user_config/i3/config"
 fi
 
 # check if we should do macos specific setup

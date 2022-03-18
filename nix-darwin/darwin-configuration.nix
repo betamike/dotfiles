@@ -27,6 +27,7 @@ in {
     autoUpdate = true;
     cleanup = "zap";
     brews = [
+      "hugo"
       "mas"
     ];
     taps = [ "homebrew/cask" "homebrew/cask-drivers" ];
@@ -35,7 +36,9 @@ in {
       "alfred"
       "amethyst"
       "cameracontroller"
+      "dash"
       "google-chrome"
+      "google-cloud-sdk"
       "ferdi"
       "firefox"
       "iterm2"
@@ -44,6 +47,7 @@ in {
       "signal"
       "slack"
       "spotify"
+      "visual-studio-code"
       "zoom"
     ];
     masApps = {

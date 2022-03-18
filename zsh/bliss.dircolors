@@ -117,7 +117,7 @@ DOOR 48;5;137     # bronze bg, white
 BLK  38;5;222;04  # bronze bg, underscore
 CHR  38;5;222;01  # bronze, bold
 
-EXEC 01 # normal, bold
+EXEC 32;5;147;01 # green, bold
 
 OTHER_WRITABLE        38;5;153;01  # blue, bold
 STICKY                48;5;67      # blue bg, white
