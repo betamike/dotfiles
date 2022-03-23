@@ -30,7 +30,10 @@ in {
       "hugo"
       "mas"
     ];
-    taps = [ "homebrew/cask" "homebrew/cask-drivers" ];
+    taps = [
+      "homebrew/cask"
+      "homebrew/cask-drivers"
+    ];
     casks = [
      "1password"
       "alfred"
@@ -43,6 +46,7 @@ in {
       "firefox"
       "iterm2"
       "logseq"
+      "loom"
       "remarkable"
       "signal"
       "slack"

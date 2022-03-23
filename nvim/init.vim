@@ -4,6 +4,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'LnL7/vim-nix'
 Plug 'hashivim/vim-terraform'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'pwntester/octo.nvim'
 
 " Search
 Plug 'nvim-lua/popup.nvim'
@@ -12,10 +14,16 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " LSP Configs
 Plug 'neovim/nvim-lspconfig'
+Plug 'folke/trouble.nvim'
+Plug 'folke/lsp-colors.nvim'
+Plug 'rmagatti/goto-preview'
 
 " Autocomplete
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+
+" Autoformat
+Plug 'mhartington/formatter.nvim'
 
 " git
 Plug 'mhinz/vim-signify'
@@ -45,7 +53,7 @@ if has("termguicolors")
 endif
 
 set background=dark
-colorscheme space_vim_theme 
+colorscheme space_vim_theme
 
 "always show status bar
 set laststatus=2
@@ -113,7 +121,7 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 "     return "\<C-N>"
 "   endif
 " endfunction
-" 
+"
 " inoremap <Tab> <C-R>=CleverTab()<CR>
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
@@ -122,6 +130,13 @@ let g:python_highlight_all = 1
 
 let g:coq_settings = { 'auto_start': v:true }
 lua require("lsp_config")
+lua require("misc")
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 if filereadable(expand("~/.vim/local.vim"))
     source ~/.vim/local.vim

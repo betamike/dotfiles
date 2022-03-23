@@ -60,9 +60,11 @@ rm "$nvim_autoload_dir/plug.vim"
 ln -s "$PWD/vim-plug.vim" "$nvim_autoload_dir/plug.vim"
 
 if [ -n "${commands[nvim]}" ]; then
-    nvim +PlugInstall +COQDeps +qall
+    nvim +PlugInstall +qall
+    nvim +COQDeps +qall
 elif [ -f "$local_bin/nvim" ]; then
-    "$local_bin/nvim" +PlugInstall +COQDeps +qall
+    "$local_bin/nvim" +PlugInstall +qall
+    "$local_bin/nvim" +COQDeps +qall
 fi
 
 kernel=$(uname -s)
