@@ -15,6 +15,7 @@ in {
     pkgs.hack-font
     pkgs.fzf
     pkgs.neovim
+    pkgs.pulumi-bin
     pkgs.ripgrep
     pkgs.tmux
     pkgs.tree
