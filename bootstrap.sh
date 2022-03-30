@@ -15,7 +15,7 @@ if [[ "$CODESPACES" == "true" ]]; then
 
     # AppImages require fuse
     apt update
-    apt install libfuse2
+    apt install libfuse2 tmux
 
     # install neovim AppImage
     curl -LO "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
@@ -50,6 +50,10 @@ ln -s "$PWD/zshrc" "$HOME/.zshrc"
 rm "$HOME/.zsh"
 ln -s "$PWD/zsh" "$HOME/.zsh"
 
+# symlink tmux.conf
+rm "$HOME/.tmux.conf"
+ln -s "$PWD/tmux.conf" "$HOME/.tmux.conf"
+
 # setup neovim config directory
 rm -r "$user_config/nvim"
 ln -s "$PWD/nvim" "$HOME/.config/nvim"
@@ -59,15 +63,15 @@ mkdir -p "$nvim_autoload_dir"
 rm "$nvim_autoload_dir/plug.vim"
 ln -s "$PWD/vim-plug.vim" "$nvim_autoload_dir/plug.vim"
 
+nvim_path=""
 if [ -n "${commands[nvim]}" ]; then
-    nvim +PlugInstall +qall
-    # the sleep is needed because +COQdeps is async
-    nvim +COQdeps +30sleep +qall
+    nvim_path="nvim"
 elif [ -f "$local_bin/nvim" ]; then
-    "$local_bin/nvim" +PlugInstall +qall
-    # the sleep is needed because +COQdeps is async
-    "$local_bin/nvim" +COQdeps +30sleep +qall
+    nvim_path="$local_bin/nvim"
 fi
+
+# install plugins
+$nvim_path -es -u ~/.config/nvim/init.vim -V -i NONE -c "PlugInstall" -c "qa"
 
 kernel=$(uname -s)
 # check if we should do linux specific setup
