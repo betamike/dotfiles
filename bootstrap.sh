@@ -63,15 +63,14 @@ mkdir -p "$nvim_autoload_dir"
 rm "$nvim_autoload_dir/plug.vim"
 ln -s "$PWD/vim-plug.vim" "$nvim_autoload_dir/plug.vim"
 
-nvim_path=""
-if [ -n "${commands[nvim]}" ]; then
-    nvim_path="nvim"
-elif [ -f "$local_bin/nvim" ]; then
+nvim_path="nvim"
+if [ -f "$local_bin/nvim" ]; then
+    echo "found local bin nvim"
     nvim_path="$local_bin/nvim"
 fi
 
 # install plugins
-$nvim_path -es -u ~/.config/nvim/init.vim -V -i NONE -c "PlugInstall" -c "qa"
+$nvim_path -es -u ~/.config/nvim/init.vim -i NONE -c "PlugInstall" -c "qa"
 
 kernel=$(uname -s)
 # check if we should do linux specific setup
