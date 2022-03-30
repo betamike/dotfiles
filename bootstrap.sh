@@ -14,8 +14,8 @@ if [[ "$CODESPACES" == "true" ]]; then
     echo "Detected Codespaces"
 
     # AppImages require fuse
-    apt update
-    apt install libfuse2 tmux
+    apt-get update
+    apt-get install -y libfuse2 tmux
 
     # install neovim AppImage
     curl -LO "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
