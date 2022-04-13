@@ -41,7 +41,6 @@ in {
       "amethyst"
       "cameracontroller"
       "dash"
-      "docker"
       "google-chrome"
       "google-cloud-sdk"
       "ferdi"
