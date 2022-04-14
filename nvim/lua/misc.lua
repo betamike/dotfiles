@@ -16,7 +16,7 @@ require('formatter').setup({
     go = {
       function()
         return {
-          exe = "gofmt",
+          exe = "goimports",
           stdin = true
         }
       end
@@ -34,7 +34,7 @@ augroup END
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "go", "python" },
+  ensure_installed = { "go", "python", "comment" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
