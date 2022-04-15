@@ -4,10 +4,9 @@ require("octo").setup()
 require('formatter').setup({
   filetype = {
     python = {
-      -- Configuration for psf/black
       function()
         return {
-          exe = "black", -- this should be available on your $PATH
+          exe = "black",
           args = { '-' },
           stdin = true,
         }
@@ -34,7 +33,13 @@ augroup END
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "go", "python", "comment" },
+  ensure_installed = {
+      "bash",
+      "comment",
+      "dockerfile",
+      "go",
+      "python",
+  },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,

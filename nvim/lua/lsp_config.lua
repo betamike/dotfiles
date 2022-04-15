@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'pylsp' }
+local servers = { 'pylsp', 'gopls' }
 for _, server in pairs(servers) do
   lsp[server].setup(
     coq.lsp_ensure_capabilities {
