@@ -28,12 +28,13 @@ in {
     autoUpdate = true;
     cleanup = "zap";
     brews = [
-      "hugo"
       "mas"
+      "mutagen"
     ];
     taps = [
       "homebrew/cask"
       "homebrew/cask-drivers"
+      "mutagen-io/mutagen"
     ];
     casks = [
      "1password"

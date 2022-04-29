@@ -39,6 +39,19 @@ if [[ "$CODESPACES" == "true" ]]; then
     fi
     tar xzf "$rg_archive_name.tar.gz"
     mv "$rg_archive_name/rg" "$local_bin/rg"
+
+    # install fzf
+    fzf_version="0.30.0"
+    fzf_archive_name="fzf-${fzf_version}"
+    fzf_sha256sum="a3428f510b7136e39104a002f19b2e563090496cb5205fa2e4c5967d34a20124"
+    curl -L -o "${fzf_archive_name}.tar.gz" "https://github.com/junegunn/fzf/archive/refs/tags/${fzf_version}.tar.gz"
+    echo "$rg_sha256sum $fzf_archive_name.tar.gz" | sha256sum --check --status
+    if [[ "$?" -ne 0 ]]; then
+        echo "fzf archive checksum failed! Bailing."
+        exit 1
+    fi
+    tar xzf "${fzf_archive_name}.tar.gz"
+    "${fzf_archive_name}/install" --all
 fi
 
 # init submodules for zsh syntax highlight plugin
