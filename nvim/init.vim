@@ -26,7 +26,8 @@ Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 Plug 'mhartington/formatter.nvim'
 
 " git
-Plug 'mhinz/vim-signify'
+Plug 'akinsho/git-conflict.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 
 " beautify
