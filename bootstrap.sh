@@ -10,8 +10,8 @@ mkdir -p "$user_config"
 
 # codespaces specific setup
 # goes first so it can install things potentially needed later
-if [[ "$CODESPACES" == "true" ]]; then
-    echo "Detected Codespaces"
+if [[ "$CODESPACES" == "true" || "$REMOTE_CONTAINERS" == "true" ]]; then
+    echo "Detected Codespaces/Remote Container"
 
     # AppImages require fuse
     apt-get update
