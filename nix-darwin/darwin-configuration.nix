@@ -35,6 +35,7 @@ in {
     brews = [
       "mas"
       "mutagen"
+      "semgrep"
       "skhd"
       "yabai"
     ];
@@ -48,6 +49,7 @@ in {
     casks = [
      "1password"
       "alfred"
+      "altair-graphql-client"
       "amethyst"
       "asana"
       "cameracontroller"

@@ -14,8 +14,8 @@ if [[ "$CODESPACES" == "true" || "$REMOTE_CONTAINERS" == "true" ]]; then
     echo "Detected Codespaces/Remote Container"
 
     # AppImages require fuse
-    apt-get update
-    apt-get install -y libfuse2 tmux
+    sudo apt-get update
+    sudo apt-get install -y libfuse2 tmux
 
     # install neovim AppImage
     nvim_version="v0.7.0"
