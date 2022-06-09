@@ -24,9 +24,6 @@ if [[ "$CODESPACES" == "true" || "$REMOTE_CONTAINERS" == "true" ]]; then
     curl -LO "https://github.com/neovim/neovim/releases/download/v0.7.0/${nvim_deb_name}"
     sudo dpkg -i "${nvim_deb_name}"
 
-    # set ZSH as the default shell
-    chsh -s /bin/zsh
-
     # install RipGrep
     rg_archive_name="ripgrep-13.0.0-x86_64-unknown-linux-musl"
     rg_sha256sum="ee4e0751ab108b6da4f47c52da187d5177dc371f0f512a7caaec5434e711c091"
