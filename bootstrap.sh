@@ -22,7 +22,7 @@ if [[ "$CODESPACES" == "true" || "$REMOTE_CONTAINERS" == "true" ]]; then
     nvim_sha256sum="4c36e1708b99f24327cde6fff2c19c2b4217e1a289fac90c2c10492df3ea7a71"
     nvim_deb_name="nvim-linux64.deb"
     curl -LO "https://github.com/neovim/neovim/releases/download/v0.7.0/${nvim_deb_name}"
-    dpkg -i "${nvim_deb_name}"
+    sudo dpkg -i "${nvim_deb_name}"
 
     # set ZSH as the default shell
     chsh -s /bin/zsh
