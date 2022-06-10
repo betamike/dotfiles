@@ -13,6 +13,9 @@ mkdir -p "$user_config"
 if [[ "$CODESPACES" == "true" || "$REMOTE_CONTAINERS" == "true" ]]; then
     echo "Detected Codespaces/Remote Container"
 
+    # set default shell for user
+    sudo chsh -s /bin/zsh codespace
+
     # AppImages require fuse
     sudo apt-get update
     sudo apt-get install -y libfuse2 tmux
