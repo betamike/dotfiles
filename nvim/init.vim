@@ -17,6 +17,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
 Plug 'rmagatti/goto-preview'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Autocomplete
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}

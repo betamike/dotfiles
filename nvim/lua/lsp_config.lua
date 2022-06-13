@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'jedi_language_server', 'gopls', 'eslint', 'jsonls', 'cssls', 'html' }
+local servers = { 'jedi_language_server', 'gopls', 'tsserver' }
 for _, server in pairs(servers) do
   lsp[server].setup(
     coq.lsp_ensure_capabilities {
@@ -45,3 +45,13 @@ end
 require('goto-preview').setup {
     default_mappings = true,
 }
+
+local null_ls = require("null-ls")
+null_ls.setup({
+    sources = {
+        null_ls.builtins.diagnostics.eslint,
+        null_ls.builtins.code_actions.eslint,
+        null_ls.builtins.formatting.prettier
+    },
+    on_attach = on_attach
+})
