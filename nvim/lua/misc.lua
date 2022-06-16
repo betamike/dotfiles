@@ -38,7 +38,12 @@ require'nvim-treesitter.configs'.setup {
       "comment",
       "dockerfile",
       "go",
+      "javascript",
+      "json",
       "python",
+      "toml",
+      "typescript",
+      "yaml",
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
