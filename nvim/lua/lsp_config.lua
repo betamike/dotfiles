@@ -49,9 +49,24 @@ require('goto-preview').setup {
 local null_ls = require("null-ls")
 null_ls.setup({
     sources = {
+        -- go
+        null_ls.builtins.diagnostics.golangci_lint,
+        null_ls.builtins.diagnostics.staticcheck,
+
+        -- typescript/javascript
         null_ls.builtins.diagnostics.eslint,
         null_ls.builtins.code_actions.eslint,
-        null_ls.builtins.formatting.prettier
+        null_ls.builtins.formatting.prettier,
+
+        -- python
+        null_ls.builtins.diagnostics.mypy,
+        null_ls.builtins.diagnostics.flake8,
+        null_ls.builtins.formatting.black,
+
+        -- shell
+        null_ls.builtins.diagnostics.shellcheck,
+        null_ls.builtins.code_actions.shellcheck,
+
     },
     on_attach = on_attach
 })
