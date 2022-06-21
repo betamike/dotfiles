@@ -100,33 +100,11 @@ if executable('rg')
   set grepprg=rg\ --no-heading\ --vimgrep\ --smart-case
 endif
 
-" vim-signify
-let g:signify_vcs_list = [ 'git', 'hg' ]
-let g:signify_sign_change = "~"
-
 "Go specific settings
 au BufRead,BufNewFile *.go set list noexpandtab syntax=go listchars=tab:\|\ ,trail:-
 
 " YAML
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-" TODO: is this still needed with current autocomplete setup
-" function! CleverTab()
-"   if pumvisible()
-"     return "\<C-N>"
-"   endif
-"   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-"     return "\<Tab>"
-"   elseif exists('&omnifunc') && &omnifunc != ''
-"     return "\<C-X>\<C-O>"
-"   else
-"     return "\<C-N>"
-"   endif
-" endfunction
-"
-" inoremap <Tab> <C-R>=CleverTab()<CR>
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 let g:python_highlight_all = 1
 

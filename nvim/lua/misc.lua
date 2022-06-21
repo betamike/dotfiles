@@ -1,3 +1,4 @@
+require('gitsigns').setup()
 require("trouble").setup {}
 require("octo").setup()
 
