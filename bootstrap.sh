@@ -8,6 +8,19 @@ mkdir -p "$local_bin"
 user_config="$HOME/.config"
 mkdir -p "$user_config"
 
+# init submodules for zsh syntax highlight plugin
+git submodule update --init
+
+# symlink zsh files
+rm "$HOME/.zshrc"
+ln -s "$PWD/zshrc" "$HOME/.zshrc"
+rm "$HOME/.zsh"
+ln -s "$PWD/zsh" "$HOME/.zsh"
+
+# symlink tmux.conf
+rm "$HOME/.tmux.conf"
+ln -s "$PWD/tmux.conf" "$HOME/.tmux.conf"
+
 # codespaces specific setup
 # goes first so it can install things potentially needed later
 if [[ "$CODESPACES" == "true" || "$REMOTE_CONTAINERS" == "true" ]]; then
@@ -52,19 +65,6 @@ if [[ "$CODESPACES" == "true" || "$REMOTE_CONTAINERS" == "true" ]]; then
     tar xzf "${fzf_archive_name}.tar.gz"
     "${fzf_archive_name}/install" --all
 fi
-
-# init submodules for zsh syntax highlight plugin
-git submodule update --init
-
-# symlink zsh files
-rm "$HOME/.zshrc"
-ln -s "$PWD/zshrc" "$HOME/.zshrc"
-rm "$HOME/.zsh"
-ln -s "$PWD/zsh" "$HOME/.zsh"
-
-# symlink tmux.conf
-rm "$HOME/.tmux.conf"
-ln -s "$PWD/tmux.conf" "$HOME/.tmux.conf"
 
 # setup neovim config directory
 rm -r "$user_config/nvim"
