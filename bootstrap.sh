@@ -83,6 +83,7 @@ fi
 
 # install plugins
 $nvim_path -es -u ~/.config/nvim/init.vim -i NONE -c "PlugInstall" -c "qa"
+$nvim_path -es -u ~/.config/nvim/init.vim -i NONE -c "LspInstall --sync" -c "qa"
 
 kernel=$(uname -s)
 # check if we should do linux specific setup
