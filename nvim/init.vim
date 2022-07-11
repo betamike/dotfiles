@@ -23,6 +23,7 @@ Plug 'folke/lsp-colors.nvim'
 
 Plug 'rmagatti/goto-preview'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'stevearc/aerial.nvim'
 
 " Testing
 Plug 'antoinemadec/FixCursorHold.nvim'
