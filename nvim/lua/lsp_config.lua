@@ -1,6 +1,7 @@
 require("nvim-lsp-installer").setup {
     automatic_installation = true,
 }
+require('aerial').setup({})
 
 local lsp = require "lspconfig"
 local coq = require "coq"
