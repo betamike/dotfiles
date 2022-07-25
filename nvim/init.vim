@@ -14,7 +14,10 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'ggandor/leap.nvim'
 
 " LSP Configs
-Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 

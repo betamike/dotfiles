@@ -1,6 +1,18 @@
-require("nvim-lsp-installer").setup {
+-- automatic LSP and tool installation
+require("mason").setup()
+require("mason-lspconfig").setup({
     automatic_installation = true,
-}
+})
+require'mason-tool-installer'.setup({
+    ensure_installed = {
+        'staticcheck',
+        'shellcheck',
+        'shfmt',
+        'flake8',
+        'black',
+    }
+})
+
 require('aerial').setup({})
 
 local lsp = require "lspconfig"
