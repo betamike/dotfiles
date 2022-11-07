@@ -14,6 +14,7 @@ require'mason-tool-installer'.setup({
 })
 
 require('aerial').setup({})
+vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
 
 local lsp = require "lspconfig"
 local coq = require "coq"
@@ -27,9 +28,6 @@ vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<C
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  -- attach Aerial
-  require("aerial").on_attach(client, bufnr)
-
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -62,9 +60,6 @@ for _, server in pairs(servers) do
   })
 end
 
-require('goto-preview').setup {
-    default_mappings = true,
-}
  require "lsp_signature".setup({
      bind = true,
  })
@@ -93,3 +88,58 @@ null_ls.setup({
     },
     on_attach = on_attach
 })
+
+local keymap = vim.keymap.set
+local saga = require('lspsaga')
+
+saga.init_lsp_saga()
+
+-- Lsp finder find the symbol definition implmement reference
+keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+
+-- Code action
+keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+keymap("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })
+
+-- Rename
+keymap("n", "gre", "<cmd>Lspsaga rename<CR>", { silent = true })
+
+-- Definition preview
+keymap("n", "gpd", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
+
+-- Show line diagnostics
+keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+
+-- Show cursor diagnostic
+keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+
+-- Diagnsotic jump
+keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+
+-- Only jump to error
+keymap("n", "[E", function()
+  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+keymap("n", "]E", function()
+  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+
+-- Outline
+keymap("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+
+-- Hover Doc
+keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+
+-- Signature help
+keymap("n", "gs", "<Cmd>Lspsaga signature_help<CR>", { silent = true })
+
+local action = require("lspsaga.action")
+-- scroll in hover doc or  definition preview window
+vim.keymap.set("n", "<C-f>", function()
+    action.smart_scroll_with_saga(1)
+end, { silent = true })
+-- scroll in hover doc or  definition preview window
+vim.keymap.set("n", "<C-b>", function()
+    action.smart_scroll_with_saga(-1)
+end, { silent = true })

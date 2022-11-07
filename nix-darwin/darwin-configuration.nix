@@ -16,6 +16,7 @@ in {
     pkgs.keychain
     pkgs.kitty
     pkgs.hack-font
+    pkgs.htop
     pkgs.fzf
     pkgs.neovim
     pkgs.pythonFull
@@ -35,19 +36,23 @@ in {
     brews = [
       "mas"
       "mutagen"
+      "node"
       "semgrep"
       "skhd"
       "yabai"
     ];
     taps = [
+      "1password/tap"
       "homebrew/cask"
       "homebrew/cask-drivers"
       "homebrew/services"
+      "microsoft/git"
       "mutagen-io/mutagen"
       "koekeishiya/formulae"
     ];
     casks = [
      "1password"
+     "1password-cli"
       "alfred"
       "altair-graphql-client"
       "amethyst"
@@ -55,10 +60,12 @@ in {
       "cameracontroller"
       "dash"
       "drawio"
+      "git-credential-manager-core"
       "google-chrome"
       "google-cloud-sdk"
       "ferdi"
       "firefox"
+      "istat-menus"
       "iterm2"
       "logseq"
       "loom"
@@ -71,6 +78,8 @@ in {
     ];
     masApps = {
       "Clocker" = 1056643111;
+      "Twingate" = 1501592214;
+      "pullBar" = 1601913905;
     };
   };
 

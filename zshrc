@@ -35,7 +35,7 @@ alias la='ls -a'
 
 bindkey '^R' history-incremental-search-backward
 
-export PATH=$HOME/bin:$HOME/.local/bin:$PATH # user custom bins
+export PATH=$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH # user custom bins
 
 # source zsh-syntax-highlighting last
 source $ZSH/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh

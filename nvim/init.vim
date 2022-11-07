@@ -24,6 +24,7 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
 
+Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 Plug 'rmagatti/goto-preview'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'stevearc/aerial.nvim'
