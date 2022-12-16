@@ -3,18 +3,10 @@ require("mason").setup()
 require("mason-lspconfig").setup({
     automatic_installation = true,
 })
-require'mason-tool-installer'.setup({
-    ensure_installed = {
-        'staticcheck',
-        'shellcheck',
-        'shfmt',
-        'flake8',
-        'black',
-    }
+require("mason-null-ls").setup({
+    automatic_installation = true,
 })
-
-require('aerial').setup({})
-vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
+require("symbols-outline").setup()
 
 local lsp = require "lspconfig"
 local coq = require "coq"
@@ -48,7 +40,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'jedi_language_server', 'gopls', 'tsserver' }
+local servers = { 'jedi_language_server', 'gopls' }
 for _, server in pairs(servers) do
   lsp[server].setup(
     coq.lsp_ensure_capabilities {
@@ -59,6 +51,16 @@ for _, server in pairs(servers) do
     }
   })
 end
+
+require("typescript").setup({
+  server = coq.lsp_ensure_capabilities {
+    on_attach=on_attach,
+    flags = {
+      -- This will be the default in neovim 0.7+
+      debounce_text_changes = 150,
+    }
+  }
+})
 
  require "lsp_signature".setup({
      bind = true,

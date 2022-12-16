@@ -5,7 +5,6 @@ Plug 'LnL7/vim-nix'
 Plug 'hashivim/vim-terraform'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'pwntester/octo.nvim'
 
 " Search
 Plug 'nvim-lua/popup.nvim'
@@ -15,11 +14,13 @@ Plug 'ggandor/leap.nvim'
 
 " LSP Configs
 Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/mason-lspconfig.nvim'
+
 Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'jayp0521/mason-null-ls.nvim'
 
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
@@ -27,13 +28,7 @@ Plug 'folke/lsp-colors.nvim'
 Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 Plug 'rmagatti/goto-preview'
 Plug 'ray-x/lsp_signature.nvim'
-Plug 'stevearc/aerial.nvim'
-
-" Testing
-Plug 'antoinemadec/FixCursorHold.nvim'
-Plug 'nvim-neotest/neotest'
-Plug 'nvim-neotest/neotest-python'
-Plug 'nvim-neotest/neotest-go'
+Plug 'simrat39/symbols-outline.nvim'
 
 " Autocomplete
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
@@ -47,10 +42,15 @@ Plug 'akinsho/git-conflict.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 
-" beautify
+" themes
 Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
 Plug 'liuchengxu/space-vim-theme'
+
+" beautify
+Plug 'feline-nvim/feline.nvim'
+
+" Typescript
+Plug 'jose-elias-alvarez/typescript.nvim'
 
 " python tools
 Plug 'vim-python/python-syntax'

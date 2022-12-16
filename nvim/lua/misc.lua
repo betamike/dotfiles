@@ -1,6 +1,6 @@
 require('gitsigns').setup()
-require("trouble").setup {}
-require("octo").setup()
+require('feline').setup()
+require("trouble").setup()
 require('leap').set_default_keymaps()
 
 require('formatter').setup({
@@ -61,16 +61,3 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
-
-require("neotest").setup({
-  adapters = {
-    require("neotest-python"),
-    require("neotest-go"),
-  },
-})
-
-local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('n', '<leader>rr', '<cmd>lua require("neotest").run.run()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>rf', '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>rs', '<cmd>lua require("neotest").run.stop()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>ra', '<cmd>lua require("neotest").run.attach()<CR>', opts)

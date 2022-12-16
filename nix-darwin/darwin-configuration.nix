@@ -31,8 +31,11 @@ in {
 
   homebrew = {
     enable = true;
-    autoUpdate = true;
-    cleanup = "zap";
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = true;
+      upgrade = true;
+    };
     brews = [
       "mas"
       "mutagen"
@@ -60,7 +63,9 @@ in {
       "cameracontroller"
       "dash"
       "drawio"
-      "git-credential-manager-core"
+      "elgato-control-center"
+      "elgato-stream-deck"
+      # "git-credential-manager-core"
       "google-chrome"
       "google-cloud-sdk"
       "ferdi"
@@ -69,6 +74,7 @@ in {
       "iterm2"
       "logseq"
       "loom"
+      "raycast"
       "remarkable"
       "signal"
       "slack"
