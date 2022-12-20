@@ -1,3 +1,4 @@
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 " general dev tools
@@ -41,6 +42,7 @@ Plug 'mhartington/formatter.nvim'
 Plug 'akinsho/git-conflict.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
+Plug 'ruifm/gitlinker.nvim'
 
 " themes
 Plug 'morhetz/gruvbox'

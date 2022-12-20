@@ -3,6 +3,9 @@ require('feline').setup()
 require("trouble").setup()
 require('leap').set_default_keymaps()
 
+require("gitlinker").setup()
+require('git-conflict').setup()
+
 require('formatter').setup({
   filetype = {
     python = {
