@@ -63,6 +63,7 @@ set encoding=utf-8
 set shortmess+=c
 set showcmd
 set noshowmode
+set mouse=
 
 set completeopt-=preview
 set completeopt+=noinsert
