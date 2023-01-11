@@ -43,11 +43,13 @@ require'nvim-treesitter.configs'.setup {
       "comment",
       "dockerfile",
       "go",
+      "lua",
       "javascript",
       "json",
       "python",
       "toml",
       "typescript",
+      "vim",
       "yaml",
   },
 

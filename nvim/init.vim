@@ -124,6 +124,10 @@ au BufRead,BufNewFile *.go set list noexpandtab syntax=go listchars=tab:\|\ ,tra
 
 " YAML
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+" typescript
+autocmd FileType typescript,typescriptreact,typrscript.tsx setlocal ts=2 sts=2 sw=2 expandtab
+" javascript
+autocmd FileType javascript,javascriptreact,javascript.jsx setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:python_highlight_all = 1
 
