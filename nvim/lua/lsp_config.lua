@@ -94,7 +94,7 @@ null_ls.setup({
 local keymap = vim.keymap.set
 local saga = require('lspsaga')
 
-saga.init_lsp_saga()
+saga.setup({})
 
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide

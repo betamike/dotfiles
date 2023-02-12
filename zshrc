@@ -49,7 +49,7 @@ eval `dircolors $HOME/.zsh/bliss.dircolors`
 if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
-else if [ -f ~/.fzf.zsh ]; then
+elif [ -f ~/.fzf.zsh ]; then
     source ~/.fzf.zsh
 fi
 
