@@ -1,4 +1,3 @@
-
 call plug#begin('~/.local/share/nvim/plugged')
 
 " general dev tools
@@ -27,9 +26,9 @@ Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
 
 Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
-Plug 'rmagatti/goto-preview'
 Plug 'ray-x/lsp_signature.nvim'
-Plug 'simrat39/symbols-outline.nvim'
+Plug 'j-hui/fidget.nvim'
+Plug 'RRethy/vim-illuminate'
 
 " Autocomplete
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
@@ -39,7 +38,6 @@ Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 Plug 'mhartington/formatter.nvim'
 
 " git
-Plug 'akinsho/git-conflict.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'ruifm/gitlinker.nvim'
@@ -47,6 +45,7 @@ Plug 'ruifm/gitlinker.nvim'
 " themes
 Plug 'morhetz/gruvbox'
 Plug 'liuchengxu/space-vim-theme'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " beautify
 Plug 'feline-nvim/feline.nvim'
@@ -74,7 +73,7 @@ if has("termguicolors")
 endif
 
 set background=dark
-colorscheme space_vim_theme
+colorscheme catppuccin-mocha
 
 "always show status bar
 set laststatus=2

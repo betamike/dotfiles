@@ -4,7 +4,6 @@ require("trouble").setup()
 require('leap').set_default_keymaps()
 
 require("gitlinker").setup()
-require('git-conflict').setup()
 
 require('formatter').setup({
   filetype = {
@@ -47,6 +46,8 @@ require'nvim-treesitter.configs'.setup {
       "javascript",
       "json",
       "python",
+      "markdown",
+      "markdown_inline",
       "toml",
       "typescript",
       "vim",
@@ -66,3 +67,11 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+-- modify vim-illuminate highlights
+vim.cmd([[
+    highlight! link  IlluminatedWordText CustomIlluminate
+    highlight! link  IlluminatedWordRead CustomIlluminate
+    highlight! link  IlluminatedWordWrite CustomIlluminate
+    highlight! CustomIlluminate guibg=#45475a cterm=underline
+]])
