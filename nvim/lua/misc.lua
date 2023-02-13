@@ -45,6 +45,7 @@ require'nvim-treesitter.configs'.setup {
       "lua",
       "javascript",
       "json",
+      "proto",
       "python",
       "markdown",
       "markdown_inline",
@@ -69,9 +70,11 @@ require'nvim-treesitter.configs'.setup {
 }
 
 -- modify vim-illuminate highlights
+-- TODO(mike): I reverted to underline because it was hard to find a highlight color
+-- that did not conflict with visual highlights
 vim.cmd([[
     highlight! link  IlluminatedWordText CustomIlluminate
     highlight! link  IlluminatedWordRead CustomIlluminate
     highlight! link  IlluminatedWordWrite CustomIlluminate
-    highlight! CustomIlluminate guibg=#45475a cterm=underline
+    highlight! CustomIlluminate gui=underline cterm=underline
 ]])
