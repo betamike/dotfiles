@@ -67,6 +67,7 @@ in {
       "firefox"
       "istat-menus"
       "iterm2"
+      "kitty"
       "logseq"
       "loom"
       "raycast"

@@ -44,7 +44,7 @@ if [ -n "${commands[direnv]}" ]; then
     eval "$(direnv hook zsh)"
 fi
 
-eval `dircolors $HOME/.zsh/bliss.dircolors`
+source "$HOME/.zsh/lscolors.sh"
 
 if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
