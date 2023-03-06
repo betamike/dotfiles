@@ -63,6 +63,7 @@ in {
       "elgato-stream-deck"
       "google-chrome"
       "google-cloud-sdk"
+      "git-credential-manager-core"
       "ferdi"
       "firefox"
       "istat-menus"

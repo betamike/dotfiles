@@ -33,6 +33,9 @@ alias ls='ls -G --color'
 alias ll='ls -l'
 alias la='ls -a'
 
+alias k="kubectl"
+alias kn="kubectl -n"
+
 bindkey '^R' history-incremental-search-backward
 
 export PATH=$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH # user custom bins

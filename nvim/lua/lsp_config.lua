@@ -63,7 +63,11 @@ require("mason-null-ls").setup({
 local keymap = vim.keymap.set
 local saga = require('lspsaga')
 
-saga.setup({})
+saga.setup({
+    outline = {
+    win_width = 50,
+  },
+})
 
 -- LSP finder - Find the symbol's definition
 -- If there is no definition, it will instead be hidden
