@@ -71,6 +71,7 @@ in {
       "kitty"
       "logseq"
       "loom"
+      "pomatez"
       "raycast"
       "remarkable"
       "signal"

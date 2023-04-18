@@ -2,8 +2,13 @@ require('gitsigns').setup()
 require('feline').setup()
 require("trouble").setup()
 require('leap').set_default_keymaps()
-
 require("gitlinker").setup()
+
+require('neogit').setup({
+  integrations = {
+    diffview = true,
+  }
+})
 
 require('formatter').setup({
   filetype = {

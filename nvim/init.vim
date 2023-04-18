@@ -42,13 +42,17 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'ruifm/gitlinker.nvim'
 
+Plug 'sindrets/diffview.nvim'
+Plug 'TimUntersberger/neogit'
+
+
 " themes
 Plug 'morhetz/gruvbox'
 Plug 'liuchengxu/space-vim-theme'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " beautify
-Plug 'feline-nvim/feline.nvim'
+Plug 'freddiehaddad/feline.nvim'
 
 " Typescript
 Plug 'jose-elias-alvarez/typescript.nvim'
