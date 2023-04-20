@@ -26,6 +26,11 @@ ln -s "$PWD/tmux.conf" "$HOME/.tmux.conf"
 if [[ "$CODESPACES" == "true" || "$REMOTE_CONTAINERS" == "true" ]]; then
     echo "Detected Codespaces/Remote Container"
 
+    # needed because github codespaces does some weird environment
+    # saving/loading that overrides PATH in /etc/zsh/zlogin
+    rm "$HOME/.zlogin"
+    ln -s "$PWD/zlogin" "$HOME/.zlogin"
+
     # set default shell for user
     sudo chsh -s /bin/zsh codespace
 
