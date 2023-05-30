@@ -39,12 +39,13 @@ if [[ "$CODESPACES" == "true" || "$REMOTE_CONTAINERS" == "true" ]]; then
     sudo apt-get install -y libfuse2 tmux
 
     # install neovim AppImage
-    nvim_version="v0.8.3"
-    nvim_sha256sum="0828910da0b532e7564b1d200645bd846e6b2e1d10aa3111e36b59c1521b16f0"
-    nvim_deb_name="nvim-linux64.deb"
-    curl -LO "https://github.com/neovim/neovim/releases/download/${nvim_version}/${nvim_deb_name}"
-    echo "${nvim_sha256sum} ${nvim_deb_name}" | sha256sum --check --status
-    sudo dpkg -i "${nvim_deb_name}"
+    nvim_version="v0.9.1"
+    nvim_sha256sum="262892176e21da0902c4f0b1e027d54d21b4bcae6b0397afccd8a81b476c3055"
+    nvim_appimage_name="nvim.appimage"
+    curl -LO "https://github.com/neovim/neovim/releases/download/${nvim_version}/${nvim_appimage_name}"
+    echo "${nvim_sha256sum} ${nvim_appimage_name}" | sha256sum --check --status
+    mv "${nvim_appimage_name}" "${local_bin}/nvim"
+    chmod +x "${local_bin}/nvim" 
 
     # install RipGrep
     rg_archive_name="ripgrep-13.0.0-x86_64-unknown-linux-musl"

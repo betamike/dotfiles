@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   hostname = "talos";
 in {
   environment.systemPackages = [
+    pkgs.colima
     pkgs.coreutils
     pkgs.direnv
     pkgs.findutils
@@ -32,16 +33,17 @@ in {
       upgrade = true;
     };
     brews = [
+      "docker"
+      "docker-buildx"
+      "helix"
       "mas"
       "mutagen"
       "node"
-      "semgrep"
       "skhd"
       "yabai"
     ];
     taps = [
       "1password/tap"
-      "homebrew/cask"
       "homebrew/cask-drivers"
       "homebrew/services"
       "microsoft/git"
@@ -55,7 +57,6 @@ in {
       "alfred"
       "altair-graphql-client"
       "amethyst"
-      "asana"
       "cameracontroller"
       "dash"
       "drawio"
@@ -66,19 +67,20 @@ in {
       "git-credential-manager-core"
       "ferdi"
       "firefox"
-      "istat-menus"
       "iterm2"
       "kitty"
+      "linear-linear"
       "logseq"
       "loom"
-      "pomatez"
       "raycast"
       "remarkable"
       "signal"
       "slack"
       "spotify"
+      "stats"
       "visual-studio-code"
       "yubico-yubikey-personalization-gui"
+      "xbar"
       "zoom"
     ];
     masApps = {
@@ -87,6 +89,13 @@ in {
       "pullBar" = 1601913905;
     };
   };
+
+  nix.extraOptions = ''
+    auto-optimise-store = true
+    experimental-features = nix-command flakes
+  '' + lib.optionalString (pkgs.system == "aarch64-darwin") ''
+    extra-platforms = x86_64-darwin aarch64-darwin
+  '';
 
   system.keyboard = {
     enableKeyMapping = true;
