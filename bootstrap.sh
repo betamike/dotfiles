@@ -36,7 +36,7 @@ if [[ "$CODESPACES" == "true" || "$REMOTE_CONTAINERS" == "true" ]]; then
 
     # AppImages require fuse
     sudo apt-get update
-    sudo apt-get install -y libfuse2 tmux
+    sudo apt-get install -y fuse libfuse2 tmux
 
     # install neovim AppImage
     nvim_version="v0.9.1"
