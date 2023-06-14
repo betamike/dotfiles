@@ -27,12 +27,14 @@ Plug 'folke/lsp-colors.nvim'
 
 Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 Plug 'ray-x/lsp_signature.nvim'
-Plug 'j-hui/fidget.nvim'
+Plug 'j-hui/fidget.nvim', { 'tag': 'legacy' }
 Plug 'RRethy/vim-illuminate'
 
 " Autocomplete
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plug 'github/copilot.vim'
 
 " Autoformat
 Plug 'mhartington/formatter.nvim'
@@ -53,6 +55,7 @@ Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " beautify
 Plug 'freddiehaddad/feline.nvim'
+Plug 'echasnovski/mini.map'
 
 " Typescript
 Plug 'jose-elias-alvarez/typescript.nvim'

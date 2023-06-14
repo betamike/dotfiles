@@ -4,6 +4,29 @@ require("trouble").setup()
 require('leap').set_default_keymaps()
 require("gitlinker").setup()
 
+local map = require('mini.map')
+map.setup({
+  integrations = {
+    map.gen_integration.builtin_search(),
+    map.gen_integration.diagnostic(),
+    map.gen_integration.gitsigns(),
+  },
+
+  symbols = {
+    encode = map.gen_encode_symbols.dot('4x2'),
+  },
+  window = {
+    show_integration_count = false,
+  },
+})
+
+vim.keymap.set('n', '<Leader>mo', MiniMap.open)
+vim.keymap.set('n', '<Leader>mc', MiniMap.close)
+vim.keymap.set('n', '<Leader>mf', MiniMap.toggle_focus)
+vim.keymap.set('n', '<Leader>mr', MiniMap.refresh)
+vim.keymap.set('n', '<Leader>ms', MiniMap.toggle_side)
+vim.keymap.set('n', '<Leader>mt', MiniMap.toggle)
+
 require('neogit').setup({
   integrations = {
     diffview = true,
@@ -54,6 +77,7 @@ require'nvim-treesitter.configs'.setup {
       "python",
       "markdown",
       "markdown_inline",
+      "terraform",
       "toml",
       "typescript",
       "vim",

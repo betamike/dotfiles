@@ -154,3 +154,7 @@ keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 
 -- Floating terminal
 keymap({"n", "t"}, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
+
+require("coq_3p") {
+  { src = "copilot", short_name = "COP", accept_key = "<c-f>" },
+}

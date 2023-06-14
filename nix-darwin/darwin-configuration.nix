@@ -33,6 +33,7 @@ in {
       upgrade = true;
     };
     brews = [
+      "code-minimap"
       "docker"
       "docker-buildx"
       "helix"
