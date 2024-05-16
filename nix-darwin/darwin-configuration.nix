@@ -4,25 +4,31 @@ let
   hostname = "talos";
 in {
   environment.systemPackages = [
+    pkgs.cargo
     pkgs.colima
     pkgs.coreutils
+    pkgs.difftastic
     pkgs.direnv
     pkgs.findutils
     pkgs.gh
     pkgs.gnugrep
     pkgs.go
     pkgs.git
+    pkgs.graphviz
     pkgs.jq
     pkgs.keychain
+    pkgs.kind
     pkgs.hack-font
     pkgs.htop
     pkgs.fzf
     pkgs.neovim
+    pkgs.poetry
     pkgs.ripgrep
     pkgs.tmux
     pkgs.tree
     pkgs.vim
     pkgs.watchman
+    pkgs.watch
   ];
 
   homebrew = {
@@ -33,6 +39,8 @@ in {
       upgrade = true;
     };
     brews = [
+      "awscli"
+      "azure-cli"
       "code-minimap"
       "docker"
       "docker-buildx"
@@ -52,22 +60,23 @@ in {
       "koekeishiya/formulae"
     ];
     casks = [
-     "1password"
-     "1password-cli"
+      "1password"
+      "1password-cli"
       "alacritty"
       "alfred"
-      "altair-graphql-client"
-      "amethyst"
       "cameracontroller"
       "dash"
       "drawio"
       "elgato-control-center"
       "elgato-stream-deck"
+      "gather"
       "google-chrome"
       "google-cloud-sdk"
       "git-credential-manager-core"
-      "ferdi"
       "firefox"
+      "hammerspoon"
+      "heynote"
+      "hiddenbar"
       "iterm2"
       "kitty"
       "linearmouse"
@@ -75,12 +84,14 @@ in {
       "logseq"
       "loom"
       "notable"
+      "orbstack"
       "raycast"
       "remarkable"
       "signal"
       "slack"
       "spotify"
       "stats"
+      "tomatobar"
       "visual-studio-code"
       "yubico-yubikey-personalization-gui"
       "xbar"
