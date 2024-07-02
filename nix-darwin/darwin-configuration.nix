@@ -5,29 +5,28 @@ let
 in {
   environment.systemPackages = [
     pkgs.cargo
-    pkgs.colima
+    pkgs.cmake
     pkgs.coreutils
-    pkgs.difftastic
     pkgs.direnv
     pkgs.findutils
     pkgs.gh
     pkgs.gnugrep
     pkgs.go
-    pkgs.git
-    pkgs.graphviz
+    # pkgs.git
     pkgs.jq
+    pkgs.hack-font
     pkgs.keychain
     pkgs.kind
-    pkgs.hack-font
+    pkgs.kubernetes-helm
     pkgs.htop
     pkgs.fzf
     pkgs.neovim
+    pkgs.opentofu
     pkgs.poetry
     pkgs.ripgrep
     pkgs.tmux
     pkgs.tree
     pkgs.vim
-    pkgs.watchman
     pkgs.watch
   ];
 
@@ -40,13 +39,11 @@ in {
     };
     brews = [
       "awscli"
-      "azure-cli"
       "code-minimap"
       "docker"
       "docker-buildx"
       "helix"
       "mas"
-      "mutagen"
       "node"
       "skhd"
       "yabai"
@@ -55,18 +52,14 @@ in {
       "1password/tap"
       "homebrew/cask-drivers"
       "homebrew/services"
-      "microsoft/git"
-      "mutagen-io/mutagen"
       "koekeishiya/formulae"
     ];
     casks = [
       "1password"
       "1password-cli"
       "alacritty"
-      "alfred"
-      "cameracontroller"
+      "bluesnooze"
       "dash"
-      "drawio"
       "elgato-control-center"
       "elgato-stream-deck"
       "gather"
@@ -74,19 +67,14 @@ in {
       "google-cloud-sdk"
       "git-credential-manager-core"
       "firefox"
-      "hammerspoon"
       "heynote"
-      "hiddenbar"
       "iterm2"
-      "kitty"
+      "jordanbaird-ice"
       "linearmouse"
       "linear-linear"
-      "logseq"
-      "loom"
-      "notable"
+      "notunes"
       "orbstack"
       "raycast"
-      "remarkable"
       "signal"
       "slack"
       "spotify"
@@ -94,13 +82,11 @@ in {
       "tomatobar"
       "visual-studio-code"
       "yubico-yubikey-personalization-gui"
-      "xbar"
       "zoom"
     ];
     masApps = {
       "Clocker" = 1056643111;
       "Twingate" = 1501592214;
-      "pullBar" = 1601913905;
     };
   };
 
