@@ -54,6 +54,9 @@ if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/completion.zsh"
 elif [ -f ~/.fzf.zsh ]; then
     source ~/.fzf.zsh
+elif [ -f /usr/share/fzf/key-bindings.zsh ]; then
+  source "/usr/share/fzf/key-bindings.zsh"
+  source "/usr/share/fzf/completion.zsh"
 fi
 
 # Nix
@@ -61,3 +64,5 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 # End Nix
+
+if [ -e /home/mike/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mike/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

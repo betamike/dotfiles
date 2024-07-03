@@ -11,13 +11,12 @@
 
 set $mod Mod4
 
-# exec picom -CGb
 exec --no-startup-id udiskie -t
 exec --no-startup-id pasystray
 exec --no-startup-id dropbox start
 exec --no-startup-id protonmail-bridge --no-window
-exec --no-startup-id /home/mike/bin/vorta
 exec --no-startup-id  blueman-tray
+# exec --no-startup-id ~/.screenlayout/primary.sh
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -166,6 +165,9 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+for_window [ title="ksnip" ] floating enable, move position center
+for_window [ title="shutter" ] floating enable, move position center
+
 #bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -183,12 +185,9 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86MonBrightnessDown exec xbacklight -time 100 -dec 5
 bindsym XF86MonBrightnessUp exec xbacklight -time 200 -inc 10
 
-bindsym XF86AudioRaiseVolume exec ~/bin/raise_volume && killall -USR1 i3status
-bindsym XF86AudioLowerVolume exec ~/bin/lower_volume && killall -USR1 i3status
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +3% && killall -USR1 i3status
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -3% && killall -USR1 i3status
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -USR1 i3status
 
 #lock and suspend
 bindsym $mod+p exec i3lock
-# bindsym $mod+p exec xdg-screensaver lock
-# bindsym $mod+p exec dm-tool lock
-# bindsym $mod+Shift+p exec systemctl suspend
